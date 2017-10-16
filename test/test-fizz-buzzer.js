@@ -6,18 +6,48 @@ const fizzBuzzer = require('../fizzBuzzer');
 describe('fizzBuzzer', function() {
 
   // test the normal case
-  it('should return `fizzbuzz`, `fizz`, `buzz`, or the original number', function() {
+  it('should return `fizzbuzz` for multiples of 15', function() {
     // range of normal inputs, including
     // notable cases like negative answers
+    const normalCases = [ 15, -15, 30, 150];
+    // for each set of inputs (a, b), `adder` should
+    // produce the expected value
+    normalCases.forEach(function(input) {
+      const answer = fizzBuzzer(input);
+      answer.should.equal('fizz-buzz');
+    });
+  });
+
+  it('should return `fizz` for multiples of 3', function() {
+
+    const normalCases = [ 3, -9, 9, 21];
+
+    normalCases.forEach(function(input) {
+      const answer = fizzBuzzer(input);
+      answer.should.equal('fizz');
+    });
+  });
+
+
+  it('should return `buzz` for multiples of 3', function() {
+
+    const normalCases = [ 3, -9, 9, 21];
+
+    normalCases.forEach(function(input) {
+      const answer = fizzBuzzer(input);
+      answer.should.equal('fizz');
+    });
+  });
+
+
+  it('should return the value of any other number', function() {
+
     const normalCases = [
       {a: 2, expected: 2},
       {a: 1001, expected: 1001},
-      {a: 15, expected: 'fizz-buzz'},
-      {a: 3, expected: 'fizz'},
-      {a: 5, expected: 'buzz'}
+      {a: -4, expected: -4}
     ];
-    // for each set of inputs (a, b), `adder` should
-    // produce the expected value
+    const expected = normalCases.expected
     normalCases.forEach(function(input) {
       const answer = fizzBuzzer(input.a);
       answer.should.equal(input.expected);
