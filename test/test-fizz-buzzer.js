@@ -29,13 +29,13 @@ describe('fizzBuzzer', function() {
   });
 
 
-  it('should return `buzz` for multiples of 3', function() {
+  it('should return `buzz` for multiples of 5', function() {
 
-    const normalCases = [ 3, -9, 9, 21];
+    const normalCases = [ 5, -10, 20, 5555];
 
     normalCases.forEach(function(input) {
       const answer = fizzBuzzer(input);
-      answer.should.equal('fizz');
+      answer.should.equal(`buzz`);
     });
   });
 
